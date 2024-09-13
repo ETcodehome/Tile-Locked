@@ -7,14 +7,19 @@ scoreboard objectives add Uuid3 dummy
 scoreboard objectives add Uuid4 dummy
 
 # Scoreboards for tracking tile unlocking
+scoreboard objectives add TileTicks dummy
+scoreboard objectives add TileAvailableXP dummy
 scoreboard objectives add TileLockedData dummy
 scoreboard objectives setdisplay list TileLockedData
 scoreboard objectives modify TileLockedData displayname "=== Tile Locked ==="
 execute unless score #difficulty TileLockedData matches 0.. run scoreboard players set #difficulty TileLockedData 0
 execute unless score #unlockSound TileLockedData matches 0.. run scoreboard players set #unlockSound TileLockedData 1
+execute unless score #unlockTexts TileLockedData matches 0.. run scoreboard players set #unlockTexts TileLockedData 1
 execute unless score Unlocked TileLockedData matches 0.. run scoreboard players set Unlocked TileLockedData 0
 execute unless score #cost5 TileLockedData matches 5 run scoreboard players set #cost5 TileLockedData 5
 execute unless score #ticks TileLockedData matches 0.. run scoreboard players set #ticks TileLockedData 0
+execute unless score #ticks TileTicks matches 0.. run scoreboard players set #ticks TileTicks 0
+execute unless score #ticks TileAvailableXP matches 0.. run scoreboard players set #ticks TileAvailableXP 0
 execute unless score #tileColor TileLockedData matches 0.. run scoreboard players set #tileColor TileLockedData 9
 execute unless score #version TileLockedData matches 0.. run scoreboard players set #version TileLockedData 1
 scoreboard objectives setdisplay sidebar TileLockedData

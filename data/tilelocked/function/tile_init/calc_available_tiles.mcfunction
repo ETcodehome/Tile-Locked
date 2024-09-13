@@ -1,3 +1,6 @@
-execute if score #difficulty TileLockedData matches 0..1 store result score @s TileLockedData run data get entity @s XpTotal
-execute if score #difficulty TileLockedData matches 1 run scoreboard players operation @s TileLockedData /= #cost5 TileLockedData
-execute if score #difficulty TileLockedData matches 2 store result score @s TileLockedData run data get entity @s XpLevel
+
+# Make tile gains playtime based 
+scoreboard players add @s TileTicks 1
+execute if score @s TileTicks matches 600.. run scoreboard players add @s TileLockedData 1
+execute if score @s TileTicks matches 600.. run title @s actionbar {"color":"gold","text":"+1 Tile (Time)"}
+execute if score @s TileTicks matches 600.. run scoreboard players remove @s TileTicks 600 

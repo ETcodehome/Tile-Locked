@@ -12,6 +12,10 @@ execute as @s[scores={TileLockedSettings=12}] run scoreboard players set #diffic
 execute as @s[scores={TileLockedSettings=20}] run scoreboard players set #unlockSound TileLockedData 0
 execute as @s[scores={TileLockedSettings=21}] run scoreboard players set #unlockSound TileLockedData 1
 
+# Tile unlock text
+execute as @s[scores={TileLockedSettings=30}] run scoreboard players set #unlockTexts TileLockedData 0
+execute as @s[scores={TileLockedSettings=31}] run scoreboard players set #unlockTexts TileLockedData 1
+
 # Tile color
 execute as @s[scores={TileLockedSettings=100}] run scoreboard players set #tileColor TileLockedData 0
 execute as @s[scores={TileLockedSettings=101}] run scoreboard players set #tileColor TileLockedData 1
@@ -32,7 +36,7 @@ execute as @s[scores={TileLockedSettings=115}] run scoreboard players set #tileC
 execute as @s[scores={TileLockedSettings=116}] run scoreboard players set #tileColor TileLockedData 16
 
 # Show our settings menu
-execute as @s[scores={TileLockedSettings=1..}] run tellraw @s ["",{"text":"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n======= 🔒 Tile Locked Settings 🔒 ======="}]
+execute as @s[scores={TileLockedSettings=1..}] run tellraw @s ["",{"text":"\n======= 🔒 Tile Locked Settings 🔒 ======="}]
 # difficulty
 execute as @s[scores={TileLockedSettings=1..}] if score #difficulty TileLockedData matches 0 run tellraw @s ["",{"text":"Tile Cost:        ","color":"gold"},{"text":"[ 1 xp ]","color":"green","clickEvent":{"action":"run_command","value":"/trigger TileLockedSettings set 10"},"hoverEvent":{"action":"show_text","contents":"Set the cost of each tile to 1 xp"}},{"text":" "},{"text":"[ 5 xp ]","clickEvent":{"action":"run_command","value":"/trigger TileLockedSettings set 11"},"hoverEvent":{"action":"show_text","contents":"Set the cost of each tile to 5 xp"}},{"text":" "},{"text":"[ 1 level ]","clickEvent":{"action":"run_command","value":"/trigger TileLockedSettings set 12"},"hoverEvent":{"action":"show_text","contents":"Set the cost of each tile to 1 level"}}]
 execute as @s[scores={TileLockedSettings=1..}] if score #difficulty TileLockedData matches 1 run tellraw @s ["",{"text":"Tile Cost:        ","color":"gold"},{"text":"[ 1 xp ]","clickEvent":{"action":"run_command","value":"/trigger TileLockedSettings set 10"},"hoverEvent":{"action":"show_text","contents":"Set the cost of each tile to 1 xp"}},{"text":" "},{"text":"[ 5 xp ]","color":"green","clickEvent":{"action":"run_command","value":"/trigger TileLockedSettings set 11"},"hoverEvent":{"action":"show_text","contents":"Set the cost of each tile to 5 xp"}},{"text":" "},{"text":"[ 1 level ]","clickEvent":{"action":"run_command","value":"/trigger TileLockedSettings set 12"},"hoverEvent":{"action":"show_text","contents":"Set the cost of each tile to 1 level"}}]
@@ -40,6 +44,8 @@ execute as @s[scores={TileLockedSettings=1..}] if score #difficulty TileLockedDa
 # chime
 execute as @s[scores={TileLockedSettings=1..}] if score #unlockSound TileLockedData matches 0 run tellraw @s ["",{"text":"Tile Unlock Chime:                 ","color":"gold"},{"text":"[ disabled ]","color":"red","clickEvent":{"action":"run_command","value":"/trigger TileLockedSettings set 21"},"hoverEvent":{"action":"show_text","contents":"Play a sound when you unlock a tile"}}]
 execute as @s[scores={TileLockedSettings=1..}] if score #unlockSound TileLockedData matches 1 run tellraw @s ["",{"text":"Tile Unlock Chime:                  ","color":"gold"},{"text":"[ enabled ]","color":"green","clickEvent":{"action":"run_command","value":"/trigger TileLockedSettings set 20"},"hoverEvent":{"action":"show_text","contents":"Play a sound when you unlock a tile"}}]
+execute as @s[scores={TileLockedSettings=1..}] if score #unlockTexts TileLockedData matches 0 run tellraw @s ["",{"text":"Tile Unlock Text:                 ","color":"gold"},{"text":"[ disabled ]","color":"red","clickEvent":{"action":"run_command","value":"/trigger TileLockedSettings set 31"},"hoverEvent":{"action":"show_text","contents":"Show text when you unlock a tile"}}]
+execute as @s[scores={TileLockedSettings=1..}] if score #unlockTexts TileLockedData matches 1 run tellraw @s ["",{"text":"Tile Unlock Text:                  ","color":"gold"},{"text":"[ enabled ]","color":"green","clickEvent":{"action":"run_command","value":"/trigger TileLockedSettings set 30"},"hoverEvent":{"action":"show_text","contents":"Show text when you unlock a tile"}}]
 # color
 execute as @s[scores={TileLockedSettings=1..}] unless score #tileColor TileLockedData matches 0..2 run tellraw @s ["",{"text":"Tile Color:  ","color":"gold"},{"text":"[ clear ]","clickEvent":{"action":"run_command","value":"/trigger TileLockedSettings set 100"}},{"text":" "},{"text":"[ white ]","clickEvent":{"action":"run_command","value":"/trigger TileLockedSettings set 101"}},{"text":" "},{"text":"[ light gray ]","clickEvent":{"action":"run_command","value":"/trigger TileLockedSettings set 102"}}]
 execute as @s[scores={TileLockedSettings=1..}] if score #tileColor TileLockedData matches 0 run tellraw @s ["",{"text":"Tile Color:  ","color":"gold"},{"text":"[ clear ]","color":"green","clickEvent":{"action":"run_command","value":"/trigger TileLockedSettings set 100"}},{"text":" "},{"text":"[ white ]","clickEvent":{"action":"run_command","value":"/trigger TileLockedSettings set 101"}},{"text":" "},{"text":"[ light gray ]","clickEvent":{"action":"run_command","value":"/trigger TileLockedSettings set 102"}}]
