@@ -7,9 +7,9 @@ scoreboard players add Unlocked TileLockedData 1
 
 # Remove the xp from player
 execute if score #difficulty TileLockedData matches 0 run xp add @a[tag=currentPlayer] -1
-execute if score #difficulty TileLockedData matches 2 unless score #unlockTexts TileLockedData matches 0 run title @a[tag=currentPlayer] actionbar {"color":"gold","text":"Tile Unlocked! (Cost 1 xp)"}
+execute if score #difficulty TileLockedData matches 0 unless score #unlockTexts TileLockedData matches 0 run title @a[tag=currentPlayer] actionbar {"color":"gold","text":"Tile Unlocked! (Cost 1 xp)"}
 execute if score #difficulty TileLockedData matches 1 run xp add @a[tag=currentPlayer] -5
-execute if score #difficulty TileLockedData matches 2 unless score #unlockTexts TileLockedData matches 0 run title @a[tag=currentPlayer] actionbar {"color":"gold","text":"Tile Unlocked! (Cost 5 xp)"}
+execute if score #difficulty TileLockedData matches 1 unless score #unlockTexts TileLockedData matches 0 run title @a[tag=currentPlayer] actionbar {"color":"gold","text":"Tile Unlocked! (Cost 5 xp)"}
 execute if score #difficulty TileLockedData matches 2 run xp add @a[tag=currentPlayer] -1 levels
 execute if score #difficulty TileLockedData matches 2 unless score #unlockTexts TileLockedData matches 0 run title @a[tag=currentPlayer] actionbar {"color":"gold","text":"Tile Unlocked! (Cost 1 level)"}
 
